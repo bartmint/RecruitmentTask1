@@ -18,15 +18,28 @@ namespace RecruitmentTaskNr1.Controllers
         {
             _stringComparator = stringComparator;
         }
-
+        /// <summary>
+        /// main page downloaded with first request
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
+        /// <summary>
+        /// partial view loaded with the first page request
+        /// </summary>
+        /// <returns></returns>
         public IActionResult EmptyComparison()
         {
             return PartialView("_ComparisonPlace", new StringComparationVM { }); ;
         }
+        /// <summary>
+        /// partial view containing the processed data to be displayed
+        /// </summary>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <returns></returns>
         public IActionResult CompareStrings(string str1, string str2)
         {
             if (str1 == null || str2 == null)

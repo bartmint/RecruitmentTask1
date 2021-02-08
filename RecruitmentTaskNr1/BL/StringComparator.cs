@@ -10,6 +10,12 @@ namespace RecruitmentTaskNr1.BL
 {
     public class StringComparator: IStringComparator
     {
+        /// <summary>
+        /// main method responsible for calling other methods
+        /// </summary>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <returns></returns>
         public StringComparationVM CompareStrings(string str1, string str2)
         {
             var stringsComparation = new StringComparationVM();
