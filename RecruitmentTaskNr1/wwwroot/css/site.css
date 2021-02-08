@@ -176,6 +176,7 @@ nav > div {
     color: white;
     bottom: 0;
     right: 0;
+    font-size:12px;
 }
 @media (max-width:1200px){
     .latin-letters{

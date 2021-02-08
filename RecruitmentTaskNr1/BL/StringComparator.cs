@@ -22,6 +22,7 @@ namespace RecruitmentTaskNr1.BL
             firstStringDescription.CapitalLetters = CheckWhichLettersAreCapital(str1);
             firstStringDescription.LowerLetters = CheckWhichLettersAreLower(str1);
             firstStringDescription.Vowels = CalculateAmmountOfVowels(str1);
+            firstStringDescription.IsPalindrom = IsPalindrom(str1);
 
             secondStringDescription.Length = str2.Length;
             secondStringDescription.Value = str2;
@@ -60,22 +61,22 @@ namespace RecruitmentTaskNr1.BL
             Dictionary<string, int> dic =
                 new Dictionary<string, int>
                 {
-                    {"upperLetters", 0 },
-                    {"lowerLetters", 0},
-                    {"numbers", 0    },
-                    {"specialLatters", 0 }
+                    {"UpperCharacters", 0 },
+                    {"LowerCharacters", 0},
+                    {"Numbers", 0    },
+                    {"SpecialCharacters", 0 }
                 };
 
             for (int i = 0; i < str1.Length; i++)
             {
                 if (str1[i] >= 'A' && str1[i] <= 'Z')
-                    dic["upperLetters"] += 1;
+                    dic["UpperCharacters"] += 1;
                 else if (str1[i] >= 'a' && str1[i] <= 'z')
-                    dic["lowerLetters"] += 1;
+                    dic["LowerCharacters"] += 1;
                 else if (str1[i] >= '0' && str1[i] <= '9')
-                    dic["numbers"] += 1;
+                    dic["Numbers"] += 1;
                 else
-                    dic["specialLatters"] += 1;
+                    dic["SpecialCharacters"] += 1;
             }
 
             return dic;
