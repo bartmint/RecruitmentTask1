@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ei9fQzREyR/uKVFKAIk6VFil93JXCbiOGoOjI5R5Zd4/Ao350T6H7zQBoW9DKuK2DLJd+7IvybbAQDkXBa3KUw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\barte\\source\\repos\\RecruitmentTaskNr1\\RecruitmentTaskNr1\\RecruitmentTaskNr1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\barte\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

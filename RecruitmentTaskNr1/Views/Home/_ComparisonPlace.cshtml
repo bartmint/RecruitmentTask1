@@ -1,0 +1,97 @@
+﻿@model StringComparationVM
+<div class="partial-div">
+    <div class="input-div">
+        <input id="FirstStr" type="text" name="name" value="" placeholder="First String" required />
+        <div class="output">
+            @if (Model.Comparison.Count > 1)
+            {
+                <p class="p-out">OutPut for: <span class="red">@Model.Comparison[0].Value</span></p>
+                if (Model.Comparison[0].CapitalLetters.Count > 0)
+                {
+                    <div class="info">
+                        Indexes of Capital Letters:
+                        @foreach (var capL in Model.Comparison[0].CapitalLetters)
+                        {
+                            <span class="red">@capL </span>
+                        }
+                    </div>
+                }
+                if (Model.Comparison[0].LowerLetters.Count > 0)
+                {
+                    <div class="info">
+                        Indexes of Lower Letters:
+                        @foreach (var capL in Model.Comparison[0].LowerLetters)
+                        {
+                            <span class="red">@capL </span>
+                        }
+                    </div>
+                }
+                <p class="info">Palindrom: <span class="red">@Model.Comparison[0].IsPalindrom</span>  </p>
+                <p class="info">Length:<span class="red">@Model.Comparison[0].Length</span>  </p>
+                <p class="info">Vowels:<span class="red">@Model.Comparison[0].Vowels</span>  </p>
+                <div class="info">
+                    Details:
+                    @foreach (var item in Model.Comparison[0].LettersTypes)
+                    {
+                        <p class="info p-details">@item.Key - <span class="red">@item.Value</span> </p>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <div class="input-div">
+        <input id="SecondStr" type="text" name="name" value="" placeholder="Second String" required />
+        <div class="output">
+            @if (Model.Comparison.Count > 1)
+            {
+                <p class="p-out">OutPut for: <span class="red">@Model.Comparison[1].Value</span></p>
+                if (Model.Comparison[1].CapitalLetters.Count > 1)
+                {
+                    <div class="info">
+                        Indexes of Capital Letters:
+                        @foreach (var capL in Model.Comparison[1].CapitalLetters)
+                        {
+                            <span class="red">@capL </span>
+                        }
+                    </div>
+                }
+                if (Model.Comparison[1].LowerLetters.Count > 0)
+                {
+                    <div class="info">
+                        Indexes of Lower Letters:
+                        @foreach (var capL in Model.Comparison[1].LowerLetters)
+                        {
+                            <span class="red">@capL </span>
+                        }
+                    </div>
+                }
+                <p class="info">Palindrom: <span class="red">@Model.Comparison[1].IsPalindrom</span>  </p>
+                <p class="info">Length:<span class="red">@Model.Comparison[1].Length</span>  </p>
+                <p class="info">Vowels:<span class="red">@Model.Comparison[1].Vowels</span>  </p>
+                <div class="info">
+                    Details:
+                    @foreach (var item in Model.Comparison[1].LettersTypes)
+                    {
+                        <p class="info p-details">@item.Key - <span class="red">@item.Value</span> </p>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="kind-of-footer">
+    @if (Model.Comparison.Count > 1)
+    {
+        <p id="Anagram-footer">
+            Anagram:     <span class="red">@Model.Anagrams </span>    
+        </p>
+        <p id="Length-footer">
+            Length Diffrence: <span class="red"> @Model.LengthDiffrence</span>
+        </p>
+    }
+</div>
+
+
+
+
+

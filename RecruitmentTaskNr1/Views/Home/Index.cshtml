@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Recruitment Task";
+}
+
+<div class="main-div-for-button">
+    <button id="compareMe">compare</button>
+    <button id="clear">clear</button>
+</div>
+<div class="main-partial-div" id="main-div"></div>
+<div class="latin-letters">Program does not process Latin letters.</div>
+
+<script>
+    $(document).ready(function () {
+        $("#main-div").load("/Home/EmptyComparison");
+    });
+</script>
+
+<script>
+    function GetStrings() {
+        var firstString = $("#FirstStr").val();
+        var secondString = $("#SecondStr").val();
+        var results = { "str1": firstString, "str2": secondString };
+
+        return results;
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#clear").click(function () {
+            $("#main-div").load("/Home/EmptyComparison");
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#compareMe").click(function () {
+            var results = GetStrings();
+            $("#main-div").load("/Home/CompareStrings", $.param(results, true));
+        });
+    });
+</script>
