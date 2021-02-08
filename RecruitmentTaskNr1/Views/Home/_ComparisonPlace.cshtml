@@ -29,6 +29,7 @@
                 <p class="info">Palindrom: <span class="red">@Model.Comparison[0].IsPalindrom</span>  </p>
                 <p class="info">Length:<span class="red">@Model.Comparison[0].Length</span>  </p>
                 <p class="info">Vowels:<span class="red">@Model.Comparison[0].Vowels</span>  </p>
+                <p class="info">The most common character: <span class="red">a - 3</span>  </p>
                 <div class="info">
                     Details:
                     @foreach (var item in Model.Comparison[0].LettersTypes)
@@ -45,7 +46,7 @@
             @if (Model.Comparison.Count > 1)
             {
                 <p class="p-out">OutPut for: <span class="red">@Model.Comparison[1].Value</span></p>
-                if (Model.Comparison[1].CapitalLetters.Count > 1)
+                if (Model.Comparison[1].CapitalLetters.Count > 0)
                 {
                     <div class="info">
                         Indexes of Capital Letters:
@@ -68,6 +69,7 @@
                 <p class="info">Palindrom: <span class="red">@Model.Comparison[1].IsPalindrom</span>  </p>
                 <p class="info">Length:<span class="red">@Model.Comparison[1].Length</span>  </p>
                 <p class="info">Vowels:<span class="red">@Model.Comparison[1].Vowels</span>  </p>
+                <p class="info">The most common character: <span class="red">a - 3</span>  </p>
                 <div class="info">
                     Details:
                     @foreach (var item in Model.Comparison[1].LettersTypes)

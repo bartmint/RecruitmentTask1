@@ -10,12 +10,6 @@ namespace RecruitmentTaskNr1.BL
 {
     public class StringComparator: IStringComparator
     {
-        /// <summary>
-        /// main method responsible for calling other methods
-        /// </summary>
-        /// <param name="str1"></param>
-        /// <param name="str2"></param>
-        /// <returns></returns>
         public StringComparationVM CompareStrings(string str1, string str2)
         {
             var stringsComparation = new StringComparationVM();
@@ -52,8 +46,8 @@ namespace RecruitmentTaskNr1.BL
         }
         private bool AreStringsAnagrams(string str1, string str2)
         {
-            var sortedStr1=String.Concat(str1.OrderBy(c => c));
-            var sortedStr2 = String.Concat(str2.OrderBy(c => c));
+            var sortedStr1=String.Concat(str1.ToLower().OrderBy(c => c));
+            var sortedStr2 = String.Concat(str2.ToLower().OrderBy(c => c));
 
             var comparation= String.Compare(sortedStr1, sortedStr2);
 
@@ -170,6 +164,35 @@ namespace RecruitmentTaskNr1.BL
             }
             return true;
         }
+        //private (string character, int ammount) FindTheMostCommonCharacter(string str1)
+        //{
+        //    Dictionary<string, int> characters = new Dictionary<string, int>();
+
+        //    foreach (var letter in str1)
+        //    {
+        //        var character = letter.ToString();
+        //        if (characters.ContainsKey(character))
+        //        {
+        //            characters[character] += 1;
+        //            continue;
+        //        }
+        //        characters.Add(character, 1);
+        //    }
+
+        //    List<int> test = new List<int>();
+        //    List<string> keys = new List<string>();
+        //    int initial = characters[str1.First().ToString()];
+        //    foreach (var item in characters)
+        //    {
+        //        var val = item.Value;
+        //        if (initial >= val)
+        //        {
+        //            initial = val;
+        //            keys.Add(item.Key);
+        //        }
+
+        //    }
+        //}
     }
     
 }
