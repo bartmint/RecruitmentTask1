@@ -23,6 +23,7 @@ namespace RecruitmentTaskNr1.BL
             firstStringDescription.LowerLetters = CheckWhichLettersAreLower(str1);
             firstStringDescription.Vowels = CalculateAmmountOfVowels(str1);
             firstStringDescription.IsPalindrom = IsPalindrom(str1);
+            firstStringDescription.TheMostCommonCharacters = FindTheMostCommonCharacter(str1);
 
             secondStringDescription.Length = str2.Length;
             secondStringDescription.Value = str2;
@@ -31,6 +32,7 @@ namespace RecruitmentTaskNr1.BL
             secondStringDescription.LowerLetters = CheckWhichLettersAreLower(str2);
             secondStringDescription.Vowels = CalculateAmmountOfVowels(str2);
             secondStringDescription.IsPalindrom = IsPalindrom(str2);
+            secondStringDescription.TheMostCommonCharacters = FindTheMostCommonCharacter(str2);
 
             stringsComparation.Anagrams = AreStringsAnagrams(str1, str2);
             stringsComparation.LengthDiffrence = CompareLengthOfStrings(str1, str2);
@@ -164,35 +166,49 @@ namespace RecruitmentTaskNr1.BL
             }
             return true;
         }
-        //private (string character, int ammount) FindTheMostCommonCharacter(string str1)
-        //{
-        //    Dictionary<string, int> characters = new Dictionary<string, int>();
+        private Dictionary<string, int> FindTheMostCommonCharacter(string str1)
+        {
+            Dictionary<string, int> characters = new Dictionary<string, int>();
 
-        //    foreach (var letter in str1)
-        //    {
-        //        var character = letter.ToString();
-        //        if (characters.ContainsKey(character))
-        //        {
-        //            characters[character] += 1;
-        //            continue;
-        //        }
-        //        characters.Add(character, 1);
-        //    }
+            foreach (var letter in str1)
+            {
+                var character = letter.ToString();
+                if (characters.ContainsKey(character))
+                {
+                    characters[character] += 1;
+                    continue;
+                }
+                characters.Add(character, 1);
+            }
+            //check if all values are the same, if yes return empty dictionary
+            if (characters.Values.Distinct().Count() == 1)
+            {
+                return new Dictionary<string, int>();
+            }
 
-        //    List<int> test = new List<int>();
-        //    List<string> keys = new List<string>();
-        //    int initial = characters[str1.First().ToString()];
-        //    foreach (var item in characters)
-        //    {
-        //        var val = item.Value;
-        //        if (initial >= val)
-        //        {
-        //            initial = val;
-        //            keys.Add(item.Key);
-        //        }
+            var ordered = characters.OrderByDescending(x => x.Value).ToDictionary(pair => pair.Key, pair => pair.Value);
+            var firstPair = ordered.First();
 
-        //    }
-        //}
+
+            var dicToReturn = new Dictionary<string, int>();
+
+            dicToReturn.Add(firstPair.Key, firstPair.Value);
+
+            var theBiggestValue = firstPair.Value;
+            ordered.Remove(firstPair.Key);
+
+            foreach (var item in ordered)
+            {
+                if (theBiggestValue == item.Value)
+                {
+                    dicToReturn.Add(item.Key, item.Value);
+                }
+            }
+
+           
+
+            return dicToReturn;
+        }
     }
     
 }

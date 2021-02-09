@@ -13,6 +13,7 @@ namespace RecruitmentTaskNr1.Models
         public int Vowels { get; set; }
         public List<int> CapitalLetters { get; set; } = new List<int>();
         public List<int> LowerLetters { get; set; } = new List<int>();
+        public Dictionary<string, int> TheMostCommonCharacters { get; set; } = new Dictionary<string, int>();
         public bool IsPalindrom { get; set; }
     }
 }

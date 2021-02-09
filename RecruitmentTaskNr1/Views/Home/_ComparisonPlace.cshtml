@@ -29,7 +29,16 @@
                 <p class="info">Palindrom: <span class="red">@Model.Comparison[0].IsPalindrom</span>  </p>
                 <p class="info">Length:<span class="red">@Model.Comparison[0].Length</span>  </p>
                 <p class="info">Vowels:<span class="red">@Model.Comparison[0].Vowels</span>  </p>
-                <p class="info">The most common character: <span class="red">a - 3</span>  </p>
+                if (Model.Comparison[0].TheMostCommonCharacters.Any())
+                {
+                    <div class="info">
+                        The most common character:
+                        @foreach (var item in Model.Comparison[0].TheMostCommonCharacters)
+                        {
+                            <span class="red">@item.Key: @item.Value</span>
+                        }
+                    </div>
+                }
                 <div class="info">
                     Details:
                     @foreach (var item in Model.Comparison[0].LettersTypes)
@@ -69,7 +78,16 @@
                 <p class="info">Palindrom: <span class="red">@Model.Comparison[1].IsPalindrom</span>  </p>
                 <p class="info">Length:<span class="red">@Model.Comparison[1].Length</span>  </p>
                 <p class="info">Vowels:<span class="red">@Model.Comparison[1].Vowels</span>  </p>
-                <p class="info">The most common character: <span class="red">a - 3</span>  </p>
+                if (Model.Comparison[1].TheMostCommonCharacters.Any())
+                {
+                    <div class="info">
+                        The most common character:
+                        @foreach (var item in Model.Comparison[1].TheMostCommonCharacters)
+                        {
+                            <span class="red">@item.Key: @item.Value</span>
+                        }
+                    </div>
+                }
                 <div class="info">
                     Details:
                     @foreach (var item in Model.Comparison[1].LettersTypes)
